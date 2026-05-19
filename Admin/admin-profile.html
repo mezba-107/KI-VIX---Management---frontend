@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Admin Profile</title>
+    <link rel="stylesheet" href="/Admin/admin-profile.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+      <div class="top-left">
+        <div class="title-icon">
+          <i class="fa-solid fa-user"></i>
+        </div>
+
+        <div>
+          <h1>Admin Profile</h1>
+
+          <p>Manage your admin information</p>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <!-- DASHBOARD -->
+
+        <a href="/index.html" class="dashboard-btn">
+          <i class="fa-solid fa-arrow-left"></i>
+          Dashboard
+        </a>
+
+        <!-- STOCK -->
+
+        <a href="/Admin/admin-stock-list.html" class="stock-btn">
+          <i class="fa-solid fa-boxes-stacked"></i>
+          Stock
+        </a>
+
+        <!-- ADD STOCK -->
+
+        <a href="/Admin/admin-add-stock.html" class="add-stock-btn">
+          <i class="fa-solid fa-plus"></i>
+          Add Stock
+        </a>
+
+        <a href="/Admin/admin-profile.html" class="profile-btn active">
+          <i class="fa-solid fa-user"></i>
+          Profile
+        </a>
+
+        <!-- LOGOUT -->
+
+        <button type="button" id="logoutBtn" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Logout
+        </button>
+      </div>
+    </div>
+
+    <!-- PROFILE -->
+
+    <div class="profile-wrapper">
+      <div class="profile-card">
+        <div class="glow glow-one"></div>
+
+        <div class="glow glow-two"></div>
+
+        <div class="profile-header">
+          <div class="profile-avatar-wrap">
+            <div class="profile-avatar">
+              <img id="profileImage" src="" alt="" />
+
+              <span id="avatarText">A</span>
+            </div>
+
+            <label for="profileUpload" class="upload-avatar-btn">
+              <i class="fa-solid fa-camera"></i>
+            </label>
+
+            <input type="file" id="profileUpload" accept="image/*" hidden />
+          </div>
+
+          <div class="name-edit-wrap">
+            <h2 id="adminName">Admin Name</h2>
+
+            <button class="edit-btn" onclick="openEditPopup('name')">
+              Edit
+            </button>
+          </div>
+
+          <p class="admin-role" id="adminRole">Super Admin</p>
+        </div>
+
+        <!-- INFO GRID -->
+
+        <div class="info-grid">
+          <!-- EMAIL -->
+
+          <div class="info-box">
+            <div class="info-icon">
+              <i class="fa-regular fa-envelope"></i>
+            </div>
+
+            <div class="info-content">
+              <span>Email</span>
+
+              <h3 id="adminEmail">admin@gmail.com</h3>
+            </div>
+          </div>
+
+          <!-- PHONE -->
+
+          <div class="info-box active-box">
+            <div class="info-icon">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+
+            <div class="info-content">
+              <div class="info-top">
+                <span>Mobile Number</span>
+
+                <button class="edit-btn" onclick="openEditPopup('phone')">
+                  Edit
+                </button>
+              </div>
+
+              <h3 id="adminPhone">01842385257</h3>
+            </div>
+          </div>
+
+          <!-- ADDRESS -->
+
+          <div class="info-box">
+            <div class="info-icon">
+              <i class="fa-solid fa-house"></i>
+            </div>
+
+            <div class="info-content">
+              <div class="info-top">
+                <span>Address</span>
+
+                <button class="edit-btn" onclick="openEditPopup('address')">
+                  Edit
+                </button>
+              </div>
+
+              <h3 id="adminAddress">Dhaka, Bangladesh</h3>
+            </div>
+          </div>
+
+          <!-- ROLE -->
+
+          <div class="info-box">
+            <div class="info-icon">
+              <i class="fa-regular fa-user"></i>
+            </div>
+
+            <div class="info-content">
+              <span>Admin Role</span>
+
+              <h3 id="adminRoleBox">Super Admin</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POPUP -->
+
+    <div class="popup-overlay" id="popupOverlay">
+      <div class="popup-box">
+        <button class="close-popup" onclick="closePopup()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="popup-header">
+          <div class="popup-icon">
+            <i class="fa-solid fa-pen"></i>
+          </div>
+
+          <div>
+            <h2 id="popupTitle">Edit Mobile Number</h2>
+
+            <p id="popupSubTitle">Update your mobile number</p>
+          </div>
+        </div>
+
+        <div class="input-label">Mobile Number</div>
+
+        <!-- +880 REMOVE KORA HOISE -->
+
+        <div class="popup-input-box">
+          <input type="text" id="popupInput" />
+        </div>
+
+        <div class="popup-note">
+          <i class="fa-solid fa-circle-info"></i>
+
+          <div id="popupNoteText">Update your information carefully.</div>
+        </div>
+
+        <div class="popup-actions">
+          <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+
+          <button class="save-btn" onclick="savePopupData()">
+            <i class="fa-solid fa-check"></i>
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUCCESS -->
+
+    <div class="success-toast" id="successToast">
+      <i class="fa-solid fa-circle-check"></i>
+
+      <span>Profile Updated Successfully</span>
+    </div>
+
+    <!-- =========================
+     GLOBAL LOADER
+========================= -->
+
+    <div id="pageLoader" class="page-loader">
+      <div class="loader-box">
+        <div class="loader-ring"></div>
+
+        <h2>Loading...</h2>
+
+        <p>Please wait a moment</p>
+      </div>
+    </div>
+
+    <script defer src="/Admin/admin-profile.js"></script>
+  </body>
+</html>

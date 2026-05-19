@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Admin Login</title>
+
+    <link rel="stylesheet" href="/Admin/admin-login.css" />
+  </head>
+
+  <body>
+    <div class="auth-container">
+      <!-- LEFT SIDE -->
+
+      <div class="auth-left">
+        <div class="logo">
+          <h1>KI-VIX</h1>
+
+          <p>Secure Admin Dashboard Access</p>
+        </div>
+
+        <div class="glow-circle one"></div>
+
+        <div class="glow-circle two"></div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+
+      <div class="auth-right">
+        <div class="form-box active">
+          <h2>Admin Login</h2>
+
+          <form id="loginForm">
+            <div class="input-group">
+              <input
+                type="email"
+                id="email"
+                placeholder="Admin Email"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+
+            <button type="submit" class="auth-btn">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================
+     GLOBAL LOADER
+========================= -->
+
+    <div id="pageLoader" class="page-loader">
+      <div class="loader-box">
+        <div class="loader-ring"></div>
+
+        <h2>Loading...</h2>
+
+        <p>Please wait a moment</p>
+      </div>
+    </div>
+
+    <script src="/Admin/admin-login.js"></script>
+  </body>
+</html>

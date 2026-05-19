@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Invoice</title>
+    <link rel="stylesheet" href="/Admin/admin-invoice.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <!-- ================= INPUT SECTION ================= -->
+
+        <div class="input-section">
+          <h2 class="input-title">Create Invoice</h2>
+
+          <div class="input-grid">
+            <input type="text" id="customerName" placeholder="Customer Name" />
+
+            <input type="text" id="customerPhone" placeholder="Phone Number" />
+
+            <input type="text" id="customerAddress" placeholder="Address" />
+
+            <input type="text" id="productName" placeholder="Product Name" />
+
+            <input type="text" id="productSize" placeholder="Product Size" />
+
+            <input type="number" id="productQty" placeholder="Quantity" />
+
+            <input type="number" id="productPrice" placeholder="Unit Price" />
+
+            <input
+              type="number"
+              id="deliveryInput"
+              placeholder="Delivery Charge"
+            />
+
+            <input type="number" id="paidInput" placeholder="Paid Amount" />
+          </div>
+
+          <button class="add-product-btn" onclick="addInvoiceItem()">
+            Add Product
+          </button>
+
+          <button class="save-btn" onclick="saveInvoice()">Save Invoice</button>
+        </div>
+        <!-- HEADER -->
+        <header>
+          <div class="brand">
+            <img class="logo-img" src="/img/kivix-B-1.gif" />
+            <div>
+              <h1>KI-VIX</h1>
+              <div class="muted small">Mobile: 01762303310</div>
+              <div class="muted small">Email: kivix.13.02@gmail.com</div>
+            </div>
+          </div>
+
+          <div class="meta">
+            <div class="title">INVOICE</div>
+            <div class="muted" id="invoiceNo"></div>
+            <div class="muted" id="invoiceDate"></div>
+          </div>
+        </header>
+
+        <!-- INFO GRID -->
+        <div class="grid">
+          <div class="box">
+            <h3>Customer Name</h3>
+            <div class="info" id="customerNameInfo"></div>
+          </div>
+
+          <div class="box">
+            <h3>Phone Number</h3>
+            <div class="info" id="customerPhoneInfo"></div>
+          </div>
+
+          <div class="box">
+            <h3>Bill To</h3>
+            <div class="info" id="billTo"></div>
+          </div>
+
+          <div class="box">
+            <h3>Payment Info</h3>
+            <div class="info" id="paymentInfo"></div>
+          </div>
+
+          <div class="box">
+            <h3>Ship To</h3>
+            <div class="info" id="shipTo"></div>
+          </div>
+
+          <div class="box">
+            <h3>Order Details</h3>
+            <div class="info" id="orderDetails"></div>
+          </div>
+        </div>
+
+        <!-- TABLE -->
+        <table>
+          <thead>
+            <tr>
+              <th>Item Description</th>
+              <th class="center">Size</th>
+              <th class="center">Qty</th>
+              <th class="right">Unit Price</th>
+              <th class="right">Amount</th>
+            </tr>
+          </thead>
+
+          <tbody id="itemsBody"></tbody>
+
+          <tfoot>
+            <tr>
+              <td colspan="3"></td>
+              <td class="muted">Subtotal</td>
+              <td class="right" id="subtotal"></td>
+            </tr>
+
+            <tr>
+              <td colspan="3"></td>
+              <td class="muted">Paid</td>
+              <td class="right" id="paid"></td>
+            </tr>
+
+            <tr>
+              <td colspan="3"></td>
+              <td class="muted">Delivery Charge</td>
+              <td class="right" id="delivery"></td>
+            </tr>
+
+            <tr class="total-row">
+              <td colspan="3"></td>
+              <td>Total</td>
+              <td class="right" id="total"></td>
+            </tr>
+
+            <tr>
+              <td colspan="3"></td>
+              <td class="muted">Due</td>
+              <td class="right" id="due"></td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="footer">
+          <div class="muted small">Thank you for your purchase!</div>
+
+          <div class="actions">
+            <a href="/index.html" class="home-btn">
+              <span class="icon">🏠</span>
+              <span class="text">Home Page</span>
+            </a>
+
+            <button onclick="window.print()" class="print-btn">
+              <span class="icon">🖨️</span>
+              <span class="text">Print / Save PDF</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ================= SIGNATURE SECTION ================= -->
+
+        <div class="signature-section">
+          <div class="signature-box">
+            <div class="signature-line"></div>
+            <p>Authorized Signature</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================
+     GLOBAL LOADER
+========================= -->
+
+    <div id="pageLoader" class="page-loader">
+      <div class="loader-box">
+        <div class="loader-ring"></div>
+
+        <h2>Loading...</h2>
+
+        <p>Please wait a moment</p>
+      </div>
+    </div>
+
+    <script src="/Admin/admin-invoice.js"></script>
+  </body>
+</html>

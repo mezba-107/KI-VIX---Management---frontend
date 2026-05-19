@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice Dashboard</title>
+
+    <link rel="stylesheet" href="/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- =========================
+        NAVBAR
+  ========================== -->
+
+    <div class="topbar">
+      <h1>📄 Invoice Dashboard</h1>
+
+      <div class="top-actions">
+        <a href="/Admin/admin-invoice.html" class="create-btn">
+          <i class="fa-solid fa-plus"></i>
+          Create Invoice
+        </a>
+
+        <!-- STOCK -->
+
+        <a href="/Admin/admin-stock-list.html" class="stock-btn">
+          <i class="fa-solid fa-boxes-stacked"></i>
+          Stock
+        </a>
+
+        <a href="/Admin/admin-add-stock.html" class="add-stock-btn">
+          <i class="fa-solid fa-square-plus"></i>
+          Add Stock
+        </a>
+
+        <a href="/Admin/admin-profile.html" class="profile-btn">
+          <i class="fa-solid fa-user-shield"></i>
+          Profile
+        </a>
+
+        <button id="logoutBtn" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Logout
+        </button>
+      </div>
+    </div>
+
+    <!-- =========================
+        SEARCH
+  ========================== -->
+
+    <div class="search-box">
+      <div class="input-group">
+        <input type="text" id="searchInput" required />
+
+        <label for="searchInput">
+          Search by customer name / phone / invoice number
+        </label>
+      </div>
+    </div>
+
+    <!-- =========================
+        STATS
+  ========================== -->
+
+    <div class="stats-grid">
+      <div class="stat-card total">
+        <span>📄</span>
+        <h3>Total Invoices</h3>
+        <p id="totalInvoices">0</p>
+      </div>
+
+      <div class="stat-card paid">
+        <span>💰</span>
+        <h3>Paid</h3>
+        <p id="paidInvoices">0</p>
+      </div>
+
+      <div class="stat-card due">
+        <span>⚠️</span>
+        <h3>Due</h3>
+        <p id="dueInvoices">0</p>
+      </div>
+    </div>
+
+    <!-- =========================
+        INVOICE LIST
+  ========================== -->
+
+    <div class="invoice-wrapper">
+      <div class="invoice-header">
+        <div>Invoice No</div>
+        <div>Customer</div>
+        <div>Phone</div>
+        <div>Total</div>
+        <div>Due</div>
+        <div>Date</div>
+        <div>Action</div>
+      </div>
+
+      <div id="invoiceList"></div>
+    </div>
+
+    <!-- =========================
+     GLOBAL LOADER
+========================= -->
+
+    <div id="pageLoader" class="page-loader">
+      <div class="loader-box">
+        <div class="loader-ring"></div>
+
+        <h2>Loading...</h2>
+
+        <p>Please wait a moment</p>
+      </div>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

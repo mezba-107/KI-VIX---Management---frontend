@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stock Management</title>
+
+    <link rel="stylesheet" href="/Admin/admin-add-stock.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+      <div class="top-left">
+        <div class="title-icon">
+          <i class="fa-solid fa-boxes-stacked"></i>
+        </div>
+
+        <div>
+          <h1>Stock Management</h1>
+
+          <p>Manage all shoe stock and inventory</p>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <a href="/index.html" class="dashboard-btn">
+          <i class="fa-solid fa-arrow-left"></i>
+          Dashboard
+        </a>
+
+        <a href="/Admin/admin-stock-list.html" class="create-btn">
+          <i class="fa-solid fa-boxes-stacked"></i>
+          Stock
+        </a>
+
+        <a href="/Admin/admin-add-stock.html" class="add-stock-btn active">
+          <i class="fa-solid fa-square-plus"></i>
+          Add Stock
+        </a>
+
+        <a href="/Admin/admin-profile.html" class="profile-btn">
+          <i class="fa-solid fa-user"></i>
+          Profile
+        </a>
+
+        <button type="button" id="logoutBtn" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Logout
+        </button>
+      </div>
+    </div>
+
+    <!-- PAGE -->
+
+    <div class="stock-wrapper">
+      <div class="stock-card">
+        <div class="stock-header">
+          <h2>Add New Shoe Stock</h2>
+
+          <p>Add available shoe models, sizes and pricing information</p>
+        </div>
+
+        <!-- FORM -->
+
+        <form class="stock-form">
+          <div class="input-grid">
+            <!-- SHOE NAME -->
+
+            <div class="input-box">
+              <input type="text" id="productName" placeholder=" " required />
+
+              <label for="productName">Shoe Name</label>
+            </div>
+
+            <!-- BRAND -->
+
+            <div class="input-box">
+              <input type="text" id="brandName" placeholder=" " required />
+
+              <label for="brandName">Brand</label>
+            </div>
+
+            <!-- MODEL -->
+
+            <div class="input-box">
+              <input type="text" id="productModel" placeholder=" " required />
+
+              <label for="productModel">Model</label>
+            </div>
+
+            <!-- SIZE -->
+
+            <div class="input-box">
+              <input type="text" id="productSize" placeholder=" " required />
+
+              <label for="productSize">Available Sizes</label>
+            </div>
+
+            <!-- STOCK -->
+
+            <div class="input-box">
+              <input type="number" id="productQty" placeholder=" " required />
+
+              <label for="productQty">Total Stock</label>
+            </div>
+
+            <!-- PRICE -->
+
+            <div class="input-box">
+              <input type="number" id="productPrice" placeholder=" " required />
+
+              <label for="productPrice">Price</label>
+            </div>
+          </div>
+
+          <!-- IMAGE -->
+
+          <div class="image-upload-box">
+            <input type="file" id="productImage" accept="image/*" hidden />
+
+            <label for="productImage" class="upload-area">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+
+              <h3>Upload Shoe Image</h3>
+
+              <p>Click to choose image from your device</p>
+
+              <img id="previewImage" />
+            </label>
+          </div>
+
+          <!-- BUTTON -->
+
+          <button type="submit" class="save-stock-btn">
+            <i class="fa-solid fa-plus"></i>
+            Add Stock
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- =========================
+     GLOBAL LOADER
+========================= -->
+
+    <div id="pageLoader" class="page-loader">
+      <div class="loader-box">
+        <div class="loader-ring"></div>
+
+        <h2>Loading...</h2>
+
+        <p>Please wait a moment</p>
+      </div>
+    </div>
+
+    <script src="/Admin/admin-add-stock.js"></script>
+  </body>
+</html>
