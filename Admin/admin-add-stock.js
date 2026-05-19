@@ -125,11 +125,14 @@ if (stockForm) {
 
       formData.append("image", imageInput.files[0]);
 
-      const response = await fetch("http://localhost:5000/api/stocks/add", {
-        method: "POST",
+      const response = await fetch(
+        "https://ki-vix-management-backend.onrender.com/api/stocks/add",
+        {
+          method: "POST",
 
-        body: formData,
-      });
+          body: formData,
+        },
+      );
 
       const data = await response.json();
 

@@ -133,7 +133,9 @@ async function fetchInvoices() {
     /* SHOW LOADER */
     loader.classList.remove("hide");
 
-    const response = await fetch("http://localhost:5000/api/invoices");
+    const response = await fetch(
+      "https://ki-vix-management-backend.onrender.com/api/invoices",
+    );
 
     const data = await response.json();
 
@@ -324,18 +326,21 @@ async function markAsPaid(id) {
 
     if (!invoice) return;
 
-    const response = await fetch(`http://localhost:5000/api/invoices/${id}`, {
-      method: "PUT",
+    const response = await fetch(
+      `https://ki-vix-management-backend.onrender.com/api/invoices/${id}`,
+      {
+        method: "PUT",
 
-      headers: {
-        "Content-Type": "application/json",
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          paid: invoice.total,
+          due: 0,
+        }),
       },
-
-      body: JSON.stringify({
-        paid: invoice.total,
-        due: 0,
-      }),
-    });
+    );
 
     const data = await response.json();
 
@@ -374,9 +379,12 @@ async function deleteInvoice(id) {
   if (!confirmDelete) return;
 
   try {
-    const response = await fetch(`http://localhost:5000/api/invoices/${id}`, {
-      method: "DELETE",
-    });
+    const response = await fetch(
+      `https://ki-vix-management-backend.onrender.com/api/invoices/${id}`,
+      {
+        method: "DELETE",
+      },
+    );
 
     const data = await response.json();
 

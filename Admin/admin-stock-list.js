@@ -30,7 +30,9 @@ if (logoutBtn) {
 
 async function fetchStocks() {
   try {
-    const response = await fetch("http://localhost:5000/api/stocks/all");
+    const response = await fetch(
+      "https://ki-vix-management-backend.onrender.com/api/stocks/all",
+    );
 
     const stocks = await response.json();
 
@@ -174,7 +176,7 @@ function setupSaveButtons() {
 
       try {
         const response = await fetch(
-          `http://localhost:5000/api/stocks/sell/${id}`,
+          `https://ki-vix-management-backend.onrender.com/api/stocks/sell/${id}`,
           {
             method: "PUT",
 
@@ -248,7 +250,7 @@ function setupDeleteButtons() {
       showDeletePopup(async () => {
         try {
           const response = await fetch(
-            `http://localhost:5000/api/stocks/delete/${id}`,
+            `https://ki-vix-management-backend.onrender.com/api/stocks/delete/${id}`,
             {
               method: "DELETE",
             },

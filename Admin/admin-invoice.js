@@ -88,7 +88,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
 async function loadInvoice(id) {
   try {
-    const response = await fetch(`http://localhost:5000/api/invoices/${id}`);
+    const response = await fetch(
+      `https://ki-vix-management-backend.onrender.com/api/invoices/${id}`,
+    );
 
     const invoice = await response.json();
 
@@ -371,41 +373,44 @@ async function saveInvoice() {
   // ================= API SAVE =================
 
   try {
-    const response = await fetch("http://localhost:5000/api/invoices", {
-      method: "POST",
+    const response = await fetch(
+      "https://ki-vix-management-backend.onrender.com/api/invoices",
+      {
+        method: "POST",
 
-      headers: {
-        "Content-Type": "application/json",
+        headers: {
+          "Content-Type": "application/json",
 
-        Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+          Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+        },
+
+        body: JSON.stringify({
+          // invoiceNo: invoiceNumber,
+
+          customerName,
+
+          customerPhone,
+
+          customerAddress,
+
+          // IMPORTANT 🔥
+          // backend e items save hoitese kina check koro
+          // safest way
+          products: products,
+          items: products,
+
+          subtotal,
+
+          deliveryCharge: delivery,
+
+          paid: paidAmount,
+
+          total,
+
+          due,
+        }),
       },
-
-      body: JSON.stringify({
-        // invoiceNo: invoiceNumber,
-
-        customerName,
-
-        customerPhone,
-
-        customerAddress,
-
-        // IMPORTANT 🔥
-        // backend e items save hoitese kina check koro
-        // safest way
-        products: products,
-        items: products,
-
-        subtotal,
-
-        deliveryCharge: delivery,
-
-        paid: paidAmount,
-
-        total,
-
-        due,
-      }),
-    });
+    );
 
     const data = await response.json();
 

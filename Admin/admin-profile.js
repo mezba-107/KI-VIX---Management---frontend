@@ -64,11 +64,14 @@ if (!admin) {
 
 async function loadProfileFromDB() {
   try {
-    const response = await fetch("http://localhost:5000/api/admin/profile", {
-      headers: {
-        Authorization: `Bearer ${adminToken}`,
+    const response = await fetch(
+      "https://ki-vix-management-backend.onrender.com/api/admin/profile",
+      {
+        headers: {
+          Authorization: `Bearer ${adminToken}`,
+        },
       },
-    });
+    );
 
     const data = await response.json();
 
@@ -237,16 +240,19 @@ async function savePopupData() {
 
     /* API CALL */
 
-    const res = await fetch("http://localhost:5000/api/admin/profile", {
-      method: "PUT",
+    const res = await fetch(
+      "https://ki-vix-management-backend.onrender.com/api/admin/profile",
+      {
+        method: "PUT",
 
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+
+        body: JSON.stringify(body),
       },
-
-      body: JSON.stringify(body),
-    });
+    );
 
     const data = await res.json();
 
@@ -326,15 +332,18 @@ profileUpload.addEventListener("change", async function () {
 
     formData.append("image", file);
 
-    const res = await fetch("http://localhost:5000/api/admin/upload-profile", {
-      method: "POST",
+    const res = await fetch(
+      "https://ki-vix-management-backend.onrender.com/api/admin/upload-profile",
+      {
+        method: "POST",
 
-      headers: {
-        Authorization: `Bearer ${adminToken}`,
+        headers: {
+          Authorization: `Bearer ${adminToken}`,
+        },
+
+        body: formData,
       },
-
-      body: formData,
-    });
+    );
 
     const data = await res.json();
 
